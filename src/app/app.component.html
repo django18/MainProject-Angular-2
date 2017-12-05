@@ -1,10 +1,9 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<app-header></app-header>
+<app-header (selectedNavEvntEmit)="onNavSelect($event)"></app-header>
 <div class="container-fluid">
   <div class="row">
 <div class="col-md-12">
-  <app-recipe></app-recipe>
-  <hr>
-  <app-shopping-list></app-shopping-list>
+  <app-recipe *ngIf="selectedNav==='Recipe'"></app-recipe>
+  <app-shopping-list *ngIf="selectedNav!=='Recipe'"></app-shopping-list>
 </div>
 </div>

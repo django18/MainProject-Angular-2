@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,EventEmitter,Output } from '@angular/core';
+
 
 @Component({
   selector: 'app-header',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
+  @Output()selectedNavEvntEmit=new EventEmitter<string>();
   constructor() { }
 
   ngOnInit() {
+  }
+
+  onSelect(selectedNavItem:MouseEvent){
+    console.log("selectedNavItem",selectedNavItem.srcElement.innerHTML);
+    this.selectedNavEvntEmit.emit(selectedNavItem.srcElement.innerHTML);
   }
 
 }
