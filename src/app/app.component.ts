@@ -12,4 +12,5 @@ export class AppComponent {
   onNavSelect(selectedNavText){
     this.selectedNav=selectedNavText;
   }
+  
 }

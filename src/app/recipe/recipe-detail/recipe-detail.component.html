@@ -8,14 +8,26 @@
         </div>
       </div>
       <div class="row">
-          <div class="col sm-12">
+        <div class="col-md-4">
+            <div class="col-sm-12">
+                <div class="btn-group" appDropdown>
+                    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" >Manage Ingredients
+                    <span class="caret"></span></button>
+                    <ul class="dropdown-menu">
+                      <li><a href="#">HTML</a></li>
+                      <li><a href="#">CSS</a></li>
+                      <li><a href="#">JavaScript</a></li>
+                    </ul>
+                  </div>
+               <p>Ingredients</p> 
+            </div>
+        </div>
+          <div class="col-md-8 col-sm-8">
             <img [src]="recipeData.imageUrl" alt="{{recipeData.name}}" class="img-responsive">
           </div>
         </div>
-      
+      <hr>
       <div class="row">
-        <div class="col-sm-12">
-          Ingredients
-        </div>
+        
       </div>
 </div>

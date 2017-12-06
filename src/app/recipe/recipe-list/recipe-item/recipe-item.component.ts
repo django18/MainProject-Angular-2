@@ -18,7 +18,7 @@ export class RecipeItemComponent implements OnInit {
 
   recipeListItemClickEvnt(event){
     event.preventDefault();
-    console.log("Recipe Item Event()")
+    console.log("Recipe Item Event()");
     this.recipeListItemClickEvntEmit.emit();
   }
 
