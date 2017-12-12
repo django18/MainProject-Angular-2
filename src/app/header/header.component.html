@@ -1,12 +1,12 @@
 <nav class="navbar navbar-default clearfix">
 <div class="container-fluid clearfix">
   <div class="navbar-header">
-    <a href="#" class="navbar-brand">Recipe-Web-App</a>
+    <a routerLink="" class="navbar-brand">Recipe-Web-App</a>
   </div>
 
   <ul class="nav navbar-nav">
-    <li><a href="#" (click)="onSelect($event)">Recipe</a></li>
-    <li><a href="#" (click)="onSelect($event)">Shopping-List</a></li>
+    <li routerLinkActive="bordered"><a href="#"  routerLink="/recipe">Recipe</a></li>
+    <li  routerLinkActive="bordered "><a href="#" routerLink="/shopping-list">Shopping-List</a></li>
   </ul>
 
   <ul class="nav navbar-nav navbar-right">

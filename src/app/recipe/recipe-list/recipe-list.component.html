@@ -6,7 +6,8 @@
 <hr>
 <div class="row">
   <div class="col-sm-12">
-    <app-recipe-item *ngFor="let recipeItemEl of recipes" [recipeItem]="recipeItemEl"
-    (recipeListItemClickEvntEmit)="onRecipeSelect(recipeItemEl)"></app-recipe-item>
+    <app-recipe-item *ngFor="let recipeItemEl of recipes"
+     [recipeItem]="recipeItemEl">
+    </app-recipe-item>
   </div>
 </div>

@@ -7,6 +7,7 @@
           <p>{{recipeData.description}}</p>
         </div>
       </div>
+      <hr>
       <div class="row">
         <div class="col-md-4">
             <div class="col-sm-12">
@@ -14,12 +15,23 @@
                     <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" >Manage Ingredients
                     <span class="caret"></span></button>
                     <ul class="dropdown-menu">
-                      <li><a href="#">HTML</a></li>
-                      <li><a href="#">CSS</a></li>
-                      <li><a href="#">JavaScript</a></li>
+                      <li><a  (click)="addToShoppingList(recipeData)">To Shopping List</a></li>
+                      <li><a >Edit Recipe</a></li>
+                      <li><a >Delte Recipe</a></li>
                     </ul>
                   </div>
-               <p>Ingredients</p> 
+                  <hr>
+                  <div class="row">
+                    <div class="col-md-12">
+                      <p>Ingredients</p>
+                      <ul class="list-group">
+                        <li class="list-group-item clearfix" *ngFor="let ingredient of recipeData.ingredients">
+                          <div class="pull-left list-group-item-text">{{ingredient.name}}</div>
+                          <span class="pull-right badge badge-primary">{{ingredient.amount}}</span>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
             </div>
         </div>
           <div class="col-md-8 col-sm-8">
@@ -27,7 +39,5 @@
           </div>
         </div>
       <hr>
-      <div class="row">
-        
-      </div>
+      
 </div>
