@@ -10,7 +10,7 @@ import { RecipeService } from './recipe.service';
 })
 export class RecipeComponent implements OnInit {
   
-  selectedRecipeData:Recipe
+  selectedRecipeData:Recipe;
   
   constructor(private recipeService:RecipeService) { }
 

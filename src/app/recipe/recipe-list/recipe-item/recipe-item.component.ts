@@ -10,18 +10,20 @@ import { RecipeService } from '../../recipe.service';
 export class RecipeItemComponent implements OnInit {
 
   @Input()recipeItem:Recipe;
-  @Output()recipeListItemClickEvntEmit=new EventEmitter<void>();
+  @Input()index:number;
+  //@Output()recipeListItemClickEvntEmit=new EventEmitter<void>();
 
   constructor(private recipeService:RecipeService) { }
 
   ngOnInit() {
   }
 
-  recipeListItemClickEvnt(){
-    // event.preventDefault();
-    // console.log("Recipe Item Event()");
-    this.recipeService.showRecipeDetail(this.recipeItem);
-  }
+  // recipeListItemClickEvnt(){
+  //   // event.preventDefault();
+  //   // console.log("Recipe Item Event()");
+  //   //this.recipeService.showRecipeDetail(this.recipeItem);
+  //   this.recipeService.getRecipe(this.index);
+  // }
 
 
 }
