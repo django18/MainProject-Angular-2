@@ -1,0 +1,8 @@
+input.ng-invalid.ng-touched{
+    border-bottom: 2px solid red;
+}
+
+.editComponent{
+    border-right:2px solid #f5f5f5;
+    padding: 10px;
+}
