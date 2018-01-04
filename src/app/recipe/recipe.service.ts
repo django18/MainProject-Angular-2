@@ -3,13 +3,18 @@ import { Recipe } from "./recipe.model";
 import { Ingredients } from "../shopping-list/ingredients.model";
 import { ShoppingListService } from "../shopping-list/shopping-list.service";
 import { Subject } from "rxjs/Subject";
+import {Http} from '@angular/http';
+import { Response } from "@angular/http";
+import { AuthService } from "../auth/auth.service";
 
 
 @Injectable()
 export class RecipeService implements OnInit{
+    fireBaseUrl='https://recipe-project-e1e00.firebaseio.com/recipes.json';
     recipesChanged=new Subject<Recipe[]>();
     recipeSelected=new EventEmitter<Recipe>();
-    constructor(private shoppingService:ShoppingListService){}
+    constructor(private shoppingService:ShoppingListService,private http:Http,
+                private authService:AuthService){}
 
     ngOnInit(){}
 
@@ -29,11 +34,30 @@ export class RecipeService implements OnInit{
         //       }
         //   )
           return this.recipes[index];
-
       }
+      
 
       getRecipes(){
-          return this.recipes.slice();
+          //return this.recipes.slice();          
+          const token=this.authService.getToken();
+          this.http.get(this.fireBaseUrl+'?auth='+token)
+          .subscribe(
+            (response:Response)=>{
+              const recipes:Recipe[]=response.json();
+              this.setRecipes(recipes);
+            }
+          );
+      }
+
+      setRecipes(recipes:Recipe[]){
+        console.log("Setting recipes:",recipes);
+        this.recipes=recipes;
+        this.recipesChanged.next(this.recipes.slice());
+      }
+
+      saveRecipes(){
+        const token=this.authService.getToken();
+        return this.http.put(this.fireBaseUrl+'?auth='+token,this.getRecipes());
       }
 
       showRecipeDetail(recipe:Recipe){

@@ -1,4 +1,7 @@
 import { Component, OnInit,EventEmitter,Output } from '@angular/core';
+import { RecipeService } from '../recipe/recipe.service';
+import { Response } from '@angular/http';
+import { AuthService } from '../auth/auth.service';
 
 
 @Component({
@@ -9,7 +12,7 @@ import { Component, OnInit,EventEmitter,Output } from '@angular/core';
 export class HeaderComponent implements OnInit {
 
   @Output()selectedNavEvntEmit=new EventEmitter<string>();
-  constructor() { }
+  constructor(private recipeService:RecipeService,private authService:AuthService) { }
 
   ngOnInit() {
   }
@@ -17,6 +20,21 @@ export class HeaderComponent implements OnInit {
   onSelect(selectedNavItem:MouseEvent){
     console.log("selectedNavItem",selectedNavItem.srcElement.innerHTML);
     this.selectedNavEvntEmit.emit(selectedNavItem.srcElement.innerHTML);
+  }
+
+  onSave(){
+    this.recipeService.saveRecipes()
+      .subscribe(
+        (response:Response) => { console.log('Recipes saved to firebase Db successfully')}
+      );
+  }
+
+  onSignout(){
+    this.authService.signOut();
+  }
+
+  onFetch(){
+    this.recipeService.getRecipes();
   }
 
 }
