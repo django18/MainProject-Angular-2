@@ -45,6 +45,7 @@ export class RecipeService implements OnInit{
             (response:Response)=>{
               const recipes:Recipe[]=response.json();
               this.setRecipes(recipes);
+              this.recipesChanged.next(this.recipes.slice());
             }
           );
       }

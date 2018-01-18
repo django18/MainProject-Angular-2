@@ -11,13 +11,7 @@ import { AuthGuard } from "./auth/auth.guard";
 
 const appRoutes:Routes=[
     {path:'',redirectTo:'/recipe',pathMatch:'full'},
-    {path:'recipe',component:RecipeComponent,children:[
-      {path:'',component:RecipeStartComponent} , 
-      {path:'new',component:RecipeEditComponent,canActivate:[AuthGuard]} , 
-      {path:':id',component:RecipeDetailComponent},
-      {path:':id/edit',component:RecipeEditComponent,canActivate:[AuthGuard]}      
-    ]},
-    {path:'shopping-list',component:ShoppingListComponent},
+    {path:'shopping-list',component:ShoppingListComponent,canActivate:[AuthGuard]},
     {path:'signin',component:SigninComponent},
     {path:'signup',component:SignupComponent}
     //{path:'**',component:'Page Not Found - 404'}
