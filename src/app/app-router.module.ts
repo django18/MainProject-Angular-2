@@ -8,9 +8,16 @@ import { RecipeEditComponent } from "./recipe/recipe-edit/recipe-edit.component"
 import { SigninComponent } from "./auth/signin/signin.component";
 import { SignupComponent } from "./auth/signup/signup.component";
 import { AuthGuard } from "./auth/auth.guard";
+import { HomeComponent } from "./home/home.component";
 
 const appRoutes:Routes=[
-    {path:'',redirectTo:'/recipe',pathMatch:'full'}
+    //{path:'',redirectTo:'/recipe',pathMatch:'full'}
+    {path:'',component:HomeComponent},
+    //Lazy Loading all other components
+    {path:'recipe',loadChildren:'./recipe/recipe.module#RecipeModule'},
+    {path:'signin',loadChildren:'./auth/auth.module#AuthModule'},
+    {path:'signup',loadChildren:'./auth/auth.module#AuthModule'},
+    {path:'shopping-list',loadChildren:'./shopping-list/sl.module#SlModule'},
     //{path:'**',component:'Page Not Found - 404'}
   ];
 

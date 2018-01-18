@@ -10,27 +10,25 @@ import { RecipeService } from './recipe/recipe.service';
 import { HttpModule } from '@angular/http';
 import { AuthService } from './auth/auth.service';
 import { AuthGuard } from './auth/auth.guard';
-import { RecipeModule } from './recipe/recipe.module';
 import { SharedModule } from './shared/shared.module';
 import { SlModule } from './shopping-list/sl.module';
 import { ShoppingListService } from './shopping-list/shopping-list.service';
 import { SlRoutingModule } from './shopping-list/sl-Routing.module';
 import { AuthModule } from './auth/auth.module';
+import { HomeComponent } from './home/home.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent
+    HeaderComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
     HttpModule,
     SharedModule,
-    AppRoutingModule,
-    RecipeModule,
-    SlModule,
-    AuthModule
+    AppRoutingModule
   ],
   providers: [ShoppingListService,RecipeService,AuthService,AuthGuard],
   bootstrap: [AppComponent]
