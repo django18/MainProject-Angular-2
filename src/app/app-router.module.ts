@@ -10,10 +10,7 @@ import { SignupComponent } from "./auth/signup/signup.component";
 import { AuthGuard } from "./auth/auth.guard";
 
 const appRoutes:Routes=[
-    {path:'',redirectTo:'/recipe',pathMatch:'full'},
-    {path:'shopping-list',component:ShoppingListComponent,canActivate:[AuthGuard]},
-    {path:'signin',component:SigninComponent},
-    {path:'signup',component:SignupComponent}
+    {path:'',redirectTo:'/recipe',pathMatch:'full'}
     //{path:'**',component:'Page Not Found - 404'}
   ];
 
